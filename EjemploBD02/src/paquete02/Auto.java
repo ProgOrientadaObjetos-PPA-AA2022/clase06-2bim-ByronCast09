@@ -12,6 +12,12 @@ package paquete02;
 public class Auto {
     private String placa;
     private double valorMatricula;
+
+    public Auto(String placa, double valorMatricula) {
+        this.placa = placa;
+        this.valorMatricula = valorMatricula;
+    }
+    
     
     public void establecerPlaca(String p){
         placa = p;
@@ -29,5 +35,11 @@ public class Auto {
         return valorMatricula;
     }
     
-    
+    @Override
+    public String toString(){
+        String data = String.format("Placa: %s\n"
+                + "Valor Matricula: %.2f\n", 
+                obtenerPlaca(), obtenerValorMatricula());
+        return data;
+    }
 }

@@ -68,7 +68,8 @@ public class Enlace {
             
             ResultSet rs = statement.executeQuery(data);
             while(rs.next()){
-                Auto auto = new Auto();
+                Auto auto = new Auto(rs.getString("placa"),
+                rs.getDouble("valor_matricula"));
                 auto.establecerPlaca(rs.getString("placa"));
                 auto.establecerValorMatricula(rs.getDouble("valor_matricula"));
                 lista.add(auto);
@@ -78,7 +79,6 @@ public class Enlace {
         } catch (SQLException e) {  
              System.out.println("Exception: insertarCiudad");
              System.out.println(e.getMessage());  
-             
         }  
         return lista;
     }
